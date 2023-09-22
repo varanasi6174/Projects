@@ -1,0 +1,35 @@
+<html>
+<body>
+<script>
+const names = ["abc","def","mnpo","aaaa","abc"];
+
+const fruits = []; //creating array 
+fruits [0] = "apple"; //element list with index
+fruits [1] = "banana";
+fruits [2] = "grapes";
+fruits [3] = "mangoess";
+
+document.write(names + "<br>"); //accessing array
+document.write(fruits[1] + "<br>"); //accessing based on index number 
+
+//array with new keyword
+const flowers = new Array("onion","potato","spinach","brinjal","ladyfinger");
+document.write(flowers + "<br>");
+
+document.write(flowers.sort() + "<br>"); //sorting array
+document.write(names.length + "<br>"); //array length
+document.write(fruits[0] + "<br>"); //first element
+document.write(fruits[fruits.length-1] + "<br>"); //last element
+
+//accessing using loop
+for (let i=0; i<fruits.length;i++){
+	document.write(fruits[i] + "<br>");
+}
+document.write("----------------------------");
+//for in loop 
+for (let x in fruits){
+document.write(fruits[x] + "<br>");
+}
+</script>
+</body>
+</html>

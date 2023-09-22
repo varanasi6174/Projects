@@ -1,0 +1,20 @@
+<html>
+<body>
+<script>
+//creating an object
+let laptop = {
+brand : "HP", //properties of object 
+modelNo : "HPA31",
+price : 78000,
+processer : "intelCorei7",
+ram : "1TB",
+info : function(){
+	return this.brand +" "+this.modelNo+" "+this.price+" "+this.ram;
+}
+};
+document.write(laptop.info()); //objectname.functionname
+document.write("<br>");
+document.write(laptop.processer); //objectname.propertyname
+</script>
+</body>
+</html>
