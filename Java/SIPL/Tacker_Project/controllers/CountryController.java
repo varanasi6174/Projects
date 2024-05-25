@@ -1,0 +1,47 @@
+package com.sipl.tracker_rest_repo.controllers;
+
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sipl.tracker_rest_repo.dto.CountryDto;
+import com.sipl.tracker_rest_repo.dto.response.CountryApiResponse;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("/country")
+public interface CountryController {
+
+	@GetMapping("/getById/{id}")
+	ResponseEntity<CountryApiResponse> findById(@PathVariable("id") Integer id);
+
+	@GetMapping("/getAll")
+	ResponseEntity<CountryApiResponse> findAll();
+
+	@PostMapping("/add")
+	ResponseEntity<CountryApiResponse> save(@RequestBody CountryDto countryDto);
+
+	@DeleteMapping("/deleteById/{id}")
+	ResponseEntity<CountryApiResponse> deleteById(@PathVariable("id") Integer id);
+
+	@PutMapping("/update/{id}")
+	ResponseEntity<CountryApiResponse> update(@RequestBody CountryDto countryDto);
+
+	@GetMapping("/pagination")
+	ResponseEntity<CountryApiResponse> getAllPagination(
+			@RequestParam(name = "pageNum", defaultValue = "0") Optional<Integer> pageNum,
+			@RequestParam(name = "pageSize", defaultValue = "10") Optional<Integer> pageSize);
+
+}
+
